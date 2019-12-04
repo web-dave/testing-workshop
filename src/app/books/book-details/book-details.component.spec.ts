@@ -7,7 +7,7 @@ import { MockBooksService, mockBooks } from '../shared/mocks/mock.book.service';
 import { BookService } from '../shared/book.service';
 import { PagesPipe } from '../shared/mocks/mock.component';
 
-xdescribe('BookDetailsComponent', () => {
+describe('BookDetailsComponent', () => {
   let component: BookDetailsComponent;
   let fixture: ComponentFixture<BookDetailsComponent>;
   let service: BookService;
