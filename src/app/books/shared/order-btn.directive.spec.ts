@@ -1,6 +1,7 @@
 import { OrderBtnDirective } from './order-btn.directive';
-import { Component } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 // tslint:disable:max-line-length
 
 @Component({
@@ -28,6 +29,7 @@ describe('OrderBtnDirective', () => {
   let component: FooComponent;
   let fixture: ComponentFixture<FooComponent>;
   let compiled: HTMLElement;
+  let elem: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -40,15 +42,27 @@ describe('OrderBtnDirective', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     compiled = fixture.nativeElement;
+    elem = fixture.debugElement.query(By.directive(OrderBtnDirective));
   });
 
   it('should create an comp instance', () => {
     expect(component).toBeTruthy();
   });
   it('should create a button with lable "Kauf mich!"', () => {
-    expect(false).toBeTruthy();
+    expect(elem.nativeElement.querySelector('button').innerText).toBe(
+      'Kauf mich!'
+    );
   });
+
   it('should log to console', () => {
-    expect(false).toBeTruthy();
+    spyOn(console, 'log');
+    elem.nativeElement.querySelector('button').click();
+    expect(console.log).toHaveBeenCalled();
+  });
+
+  it('should log to console on mouseleave', () => {
+    spyOn(console, 'log');
+    elem.nativeElement.dispatchEvent(new Event('mouseleave'));
+    expect(console.log).toHaveBeenCalledWith('mouseleave');
   });
 });

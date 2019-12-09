@@ -36,6 +36,6 @@
     Not a valid ISBN
   </small>
 
-  <button type="submit" [disabled]="form.invalid">Save</button>
+  <button type="submit" [disabled]="!form.valid">Save</button>
 </form>
 <a routerLink=".." class="btn btn-danger">X</a>

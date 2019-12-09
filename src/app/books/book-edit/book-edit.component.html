@@ -16,7 +16,14 @@
   </div>
   ...
   <div>
-    <button type="submit" class="btn btn-success" (click)="validate(form.valid)">Save</button>
+    <button
+      type="submit"
+      [disabled]="!form.valid"
+      class="btn btn-success"
+      (click)="validate(form.valid)"
+    >
+      Save
+    </button>
     <a class="btn btn-default btn-sm" [routerLink]="['..']">X</a>
   </div>
 </form>

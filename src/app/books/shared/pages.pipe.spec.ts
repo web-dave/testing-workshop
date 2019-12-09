@@ -1,10 +1,11 @@
 import { PagesPipe } from './pages.pipe';
 
 describe('PagesPipe', () => {
+  const pipe = new PagesPipe();
   it('create an instance', () => {
-    expect(false).toBeTruthy();
+    expect(pipe).toBeTruthy();
   });
   it('should return a "S.: 333"', () => {
-    expect(false).toBeTruthy();
+    expect(pipe.transform('333')).toBe('S.: 333');
   });
 });

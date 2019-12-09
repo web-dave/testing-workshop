@@ -56,6 +56,19 @@ describe('BookEditComponent', () => {
   }));
 
   it('should submit the book on click on the submit button', () => {
-    expect(false).toBeTruthy();
+    compiled.querySelector('button').click();
+    expect(service.updateBook).toHaveBeenCalledWith(component.book);
   });
+
+  it('should disable submit button if invalid', fakeAsync(() => {
+    const btn = compiled.querySelector('button') as HTMLButtonElement;
+    expect(btn.hasAttribute('disabled')).toBeFalsy();
+    const title = compiled.querySelector('[name="title"]');
+    title.value = '';
+
+    title.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    tick();
+    expect(btn.hasAttribute('disabled')).toBeTruthy();
+  }));
 });

@@ -1,4 +1,4 @@
-<div class="card" *ngIf="(book$ | async) as book">
+<div class="card" *ngIf="book$ | async as book">
   <div class="card-header">{{ book.title }} ({{ book.isbn }})</div>
   <div class="card-body">
     <p>
@@ -6,6 +6,10 @@
       <span class="badge">{{
         book.numPages | pages: 'Anzahl der Seiten'
       }}</span>
+
+      <span class="badge">-------{{ transform(hans) }}</span>
+
+      <span class="badge">{{ hans | pages | uppercase | lowercase }}</span>
     </p>
     <p>{{ book.publisher.name }} ({{ book.publisher.url }})</p>
   </div>

@@ -12,11 +12,16 @@ import { Observable } from 'rxjs';
 })
 export class BookDetailsComponent implements OnInit {
   book$: Observable<IBook>;
+  hans = 0;
   constructor(private route: ActivatedRoute, private service: BookService) {}
 
   ngOnInit() {
     this.book$ = this.route.params.pipe(
       mergeMap(params => this.service.getBook(params.isbn))
     );
+  }
+  transform(value: any, arg: any = 'S.'): any {
+    console.log('methode', value);
+    return `${arg}: ${value}`;
   }
 }

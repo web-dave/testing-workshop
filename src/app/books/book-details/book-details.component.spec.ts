@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { BookDetailsComponent } from './book-details.component';
 import { MockBooksService, mockBooks } from '../shared/mocks/mock.book.service';
 import { BookService } from '../shared/book.service';
 import { PagesPipe } from '../shared/mocks/mock.component';
+import { imports } from '../shared/mocks/config';
 
 describe('BookDetailsComponent', () => {
   let component: BookDetailsComponent;
@@ -16,7 +16,7 @@ describe('BookDetailsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [BookDetailsComponent, PagesPipe],
-      imports: [RouterTestingModule],
+      imports,
       providers: [
         {
           provide: ActivatedRoute,
