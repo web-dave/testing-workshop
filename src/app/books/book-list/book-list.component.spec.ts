@@ -24,12 +24,7 @@ describe('BookListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BookListComponent, FooComponent],
-      providers: [
-        {
-          provide: BookService,
-          useClass: MockBooksService
-        }
-      ],
+      providers: [],
       imports: [RouterTestingModule, HttpClientTestingModule]
     }).compileComponents();
   }));
