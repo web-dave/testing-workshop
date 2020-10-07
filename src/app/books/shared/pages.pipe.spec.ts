@@ -7,4 +7,7 @@ describe('PagesPipe', () => {
   it('should return a "S.: 333"', () => {
     expect(false).toBeTruthy();
   });
+  it('should return a "Number Pages: 333"', () => {
+    expect(false).toBeTruthy();
+  });
 });
